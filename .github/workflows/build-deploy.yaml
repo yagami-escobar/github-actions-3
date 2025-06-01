@@ -13,7 +13,7 @@ jobs:
       dockerfile-path: ./Dockerfile
     secrets:
       # Aquí pasas los secretos que el workflow reutilizable pueda necesitar para el build (ej. para login en un registry privado)
-      REGISTRY_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      REGISTRY_USERNAME: pablokbs
       REGISTRY_TOKEN: ${{ secrets.DOCKER_TOKEN }}
 
   deploy:
