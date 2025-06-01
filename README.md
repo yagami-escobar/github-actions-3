@@ -31,14 +31,14 @@ docker run -p 80:80 mi-app
 El pipeline de CI/CD utiliza workflows reutilizables desde el repositorio `Pelado-Nerdworks/workflows-compartidos`:
 
 ### Build Workflow
-- Ubicación: `.github/workflows/build-docker.yml`
+- Ubicación: `.github/workflows/build-docker.yaml`
 - Función: Construye y publica la imagen Docker
 - Inputs requeridos:
   - `image-name`: Nombre de la imagen
   - `dockerfile-path`: Ruta al Dockerfile
 
 ### Deploy Workflow
-- Ubicación: `.github/workflows/deploy-k8s.yml`
+- Ubicación: `.github/workflows/deploy-k8s.yaml`
 - Función: Despliega la aplicación en Kubernetes
 - Inputs requeridos:
   - `app-name`: Nombre de la aplicación

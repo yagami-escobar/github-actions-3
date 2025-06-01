@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    uses: Pelado-Nerdworks/workflows-compartidos/.github/workflows/build-docker.yml@main # Aquí el 'main' es la rama del shared-workflows
+    uses: Pelado-Nerdworks/workflows-compartidos/.github/workflows/build-docker.yaml@main # Aquí el 'main' es la rama del shared-workflows
     with:
       image-name: pelado-app
       dockerfile-path: ./Dockerfile
@@ -19,7 +19,7 @@ jobs:
 
   deploy:
     needs: build # Depende del job de build
-    uses: Pelado-Nerdworks/workflows-compartidos/.github/workflows/deploy-k8s.yml@main
+    uses: Pelado-Nerdworks/workflows-compartidos/.github/workflows/deploy-k8s.yaml@main
     with:
       app-name: pelado-app
       namespace: production
