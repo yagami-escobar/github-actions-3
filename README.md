@@ -88,4 +88,4 @@ Para que el pipeline funcione correctamente, necesitas configurar los siguientes
 
 ## 🤝 Contribuciones
 
-Este es un proyecto de demostración para mostrar el uso de workflows reutilizables. ¡Las contribuciones son bienvenidas! 
+Este es un proyecto de demostración para mostrar el uso de workflows reutilizables. ¡Las contribuciones son bienvenidas!
