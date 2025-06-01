@@ -1,0 +1,29 @@
+name: My App CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    uses: Pelado-Nerdworks/workflows-compartidos/.github/workflows/build-docker.yml@main # Aquí el 'main' es la rama del shared-workflows
+    with:
+      image-name: pelado-app
+      dockerfile-path: ./Dockerfile
+    secrets:
+      # Aquí pasas los secretos que el workflow reutilizable pueda necesitar para el build (ej. para login en un registry privado)
+      REGISTRY_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      REGISTRY_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+    id: build_step # Importante para obtener outputs
+
+  deploy:
+    needs: build # Depende del job de build
+    uses: Pelado-Nerdworks/workflows-compartidos/.github/workflows/deploy-k8s.yml@main
+    with:
+      app-name: pelado-app
+      namespace: production
+      image-tag: ${{ needs.build.outputs.image-tag }} # Ejemplo de cómo usar el output del workflow reutilizable de build
+    secrets:
+      # Aquí pasas los secretos que el workflow reutilizable de deploy pueda necesitar (ej. KUBECONFIG)
+      KUBECONFIG: ${{ secrets.KUBECONFIG }}
