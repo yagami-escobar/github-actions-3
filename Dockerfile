@@ -10,7 +10,7 @@ RUN pip install -r requirements.txt
 COPY app.py .
 
 # Optional build-time calculation
-ARG HEAVY_BUILD=false
+ARG HEAVY_BUILD=true
 ENV HEAVY_BUILD=${HEAVY_BUILD}
 
 # If HEAVY_BUILD is true, run the calculation during build
