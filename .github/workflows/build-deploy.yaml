@@ -11,9 +11,9 @@ jobs:
     with:
       image-name: pelado-app
       dockerfile-path: ./Dockerfile
+      registry-username: pablokbs # El username ya no es secreto
     secrets:
-      # Aquí pasas los secretos que el workflow reutilizable pueda necesitar para el build (ej. para login en un registry privado)
-      REGISTRY_USERNAME: pablokbs
+      # Solo el token es secreto
       REGISTRY_TOKEN: ${{ secrets.DOCKER_TOKEN }}
 
   deploy:
