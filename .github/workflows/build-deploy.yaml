@@ -20,9 +20,9 @@ jobs:
     needs: build # Depende del job de build
     uses: Pelado-Nerdworks/workflows-compartidos/.github/workflows/deploy-k8s.yaml@main
     with:
-      app-name: pelado-app
+      deployment-name: pelado-app
       namespace: production
-      image-tag: ${{ needs.build.outputs.image-tag }} # El workflow reutilizable debe exponer este output
+      image: ${{ needs.build.outputs.image-tag }} # El workflow reutilizable debe exponer este output
     secrets:
       # Aquí pasas los secretos que el workflow reutilizable de deploy pueda necesitar (ej. KUBECONFIG)
       KUBECONFIG: ${{ secrets.KUBECONFIG }}
