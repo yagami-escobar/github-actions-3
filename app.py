@@ -16,7 +16,7 @@ def heavy_calculation():
         return True
 
     # Find prime numbers up to 100000
-    primes = [num for num in range(2, 50000000) if is_prime(num)]
+    primes = [num for num in range(2, 500) if is_prime(num)]
     return len(primes)
 
 @app.route('/')
