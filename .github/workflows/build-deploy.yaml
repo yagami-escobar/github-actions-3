@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    uses: yagami-escobar/workflows-compartidos/.github/workflows/build-docker.yaml@main # Aquí el 'main' es la rama del shared-workflowss
+    uses: yagami-escobar/workflows-compartidos/.github/workflows/build-docker.yaml@main # Aquí el 'main' es la rama del shared-workflows
     with:
       image-name: yagami-app
       dockerfile-path: ./Dockerfile
